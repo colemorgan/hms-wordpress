@@ -1,0 +1,104 @@
+.home-curriculum {
+  background: $c-white;
+  @include angle(after, false, 6deg);
+}
+
+.home-curriculum-title {
+  color: $c-blue;
+}
+
+.home-curriculum-content-left {
+  padding: 40px 0 25px;
+  @include bp(medium) {
+    @include span(9);
+    margin-left: span(1 wide);
+    padding: 50px 0 100px;
+  }
+}
+
+.home-curriculum-content-right {
+  position: relative;
+  padding-bottom: 10px;
+
+  @include bp(medium) {
+    @include span(6 last);
+    padding-left: span(1);
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+
+  @include bp(large) {
+    padding-bottom: 80px;
+  }
+
+  &:before {
+    display: none;
+    content:"";
+    background: #D7DBDE;
+    width: 3px;
+    position: absolute;
+    left: span(1 of 6) / 2;
+    top: 30px;
+    bottom: 30px;
+    height: 100%;
+    border-radius: 5px;
+
+    @include bp(medium) {
+      display: block;
+    }
+  }
+}
+
+.home-curriculum-list {
+  display: none;
+  max-width: 255px;
+
+  @include bp(medium) {
+    display: block;
+    margin-left: 10px;
+  }
+}
+
+.home-curriculum-list-item {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+
+  @include bp(medium) {
+    font-size: 15px;
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  @include bp(large) {
+    font-size: 18px;
+    margin: 0 0 30px;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    color: $c-black;
+
+    &:after {
+      content:"";
+      display: block;
+      width: 100%;
+      background: $c-blue;
+      height: 3px;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    &:hover {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}

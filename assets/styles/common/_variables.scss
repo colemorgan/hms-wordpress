@@ -1,0 +1,85 @@
+// Project Specific breakpoints
+$breakpoints: (
+  'small'           : ( min-width:  421px ),
+  'small-down'      : ( max-width:  420px ),
+  'smedium'         : ( min-width:  600px ),
+  'medium'          : ( min-width:  768px ),
+  'medium-down'     : ( max-width:  767px ),
+  'medium-only'     : unquote('(min-width: 768px) and (max-width: 1023px)'),
+  'medium-portrait' : unquote('(min-width: 768px) and (max-width: 959px)'),
+  'large'           : ( min-width: 1024px ),
+  'large-down'      : ( max-width: 1023px ),
+  'xlarge'          : ( min-width: 1200px ),
+  'xxlarge'         : ( min-width: 1400px ),
+  'xxxlarge'        : ( min-width: 1600px ),
+  'print'           : ( only print ),
+  'screen'          : ( only screen ),
+  'retina'          : unquote('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)'),
+  'portrait'        : unquote('only screen and (orientation: portrait)'),
+  'landscape'       : unquote('only screen and (orientation: landscape)'),
+  'ie-10-11'        : unquote('only screen and (-ms-high-contrast: active), (-ms-high-contrast: none)')
+);
+
+// Colors
+$c-blue:        #7D9FD9;
+$c-red:         #DD2229;
+$c-white:       #ffffff;
+$c-black:       #000000;
+$c-light_blue:  #BED1E8;
+
+// Fonts
+$f-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$f-serif: Times New Roman, Georgia, serif;
+$f-muli: 'Muli', $f-sans;
+$f-lora: 'Lora', $f-serif;
+
+// Font Sizes
+$h1-font-sizes: (
+  null : (38px, 1),
+  medium : (44px),
+  large : (58px),
+);
+
+$h2-font-sizes: (
+  null : (25px),
+  medium : (40px),
+  large : (52px)
+);
+
+$h3-font-sizes: (
+  null : (22px),
+  medium : (32px),
+  large : (40px)
+);
+
+$h4-font-sizes: (
+  null : (15px),
+  medium : (28px),
+  large : (34px)
+);
+
+$h5-font-sizes: (
+  null : (16px),
+  medium : (24px),
+  large : (28px)
+);
+
+$p-font-sizes: (
+  null : (13px),
+  medium : (15px)
+);
+
+//Susy Maps
+$susy: (
+  columns: 16,
+  container: 980px,
+  global-box-sizing: border-box,
+  debug: (
+    image: hide,
+    color: rgba(#f7a0d2, .2),
+    output: background,
+  ),
+);
+
+//debug grid "show/hide"
+$susy-debug: "hide";

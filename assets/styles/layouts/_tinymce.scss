@@ -1,0 +1,22 @@
+body#tinymce {
+  margin: 12px !important;
+
+  p {
+    padding: 0 0 15px;
+  }
+
+  ul {
+
+    li {
+      margin: 0 0 5px;
+
+      &:before {
+        content:"•";
+        font-family: $f-muli;
+        font-size: 15px;
+        display: inline-block;
+        margin: 0 8px 0 1px;
+      }
+    }
+  }
+}

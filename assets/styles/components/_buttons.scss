@@ -1,0 +1,94 @@
+.btn,
+%button {
+  display: inline-block;
+  background: $c-red;
+  border-radius: 25px;
+  padding: 6px 25px;
+  color: $c-white;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  outline: 0;
+  border: 0;
+  transition: all 0.2s;
+
+  @include bp(medium) {
+    font-size: 16px;
+    padding: 9px 35px;
+  }
+
+  @include bp(large) {
+    font-size: 18px;
+    padding: 10px 40px;
+  }
+
+  > a {
+    color: $c-white;
+  }
+
+  &:hover {
+    background: darken($c-red, 20%);
+    color: $c-white;
+  }
+
+  &--alt {
+    padding: 8px 15px;
+    background: transparent url('../../dist/images/icons/icon-arrow--right.png') no-repeat 90% center;
+    border: 2px solid $c-blue;
+    background: none;
+    color: $c-blue;
+    font-size: 14px;
+
+    &:hover {
+      background: $c-blue url('../../dist/images/icons/icon-arrow--blue.png') no-repeat 90% center;
+      color: $c-white;
+    }
+  }
+
+  &--banner {
+    font-size: 12px;
+    padding: 8px 20px;
+
+    @include bp(medium) {
+      font-size: 16px;
+      padding: 9px 35px;
+    }
+
+    @include bp(large) {
+      font-size: 19px;
+      padding: 9px 42px;
+    }
+  }
+
+  &--white {
+    background: none;
+    padding: 8px 15px;
+    border: 2px solid $c-white;
+    color: $c-white;
+    font-size: 14px;
+
+    &:hover {
+      background: $c-white;
+      color: $c-blue;
+    }
+  }
+
+  &--blue {
+    background: $c-blue;
+    color: $c-white;
+
+    &:hover {
+      background: $c-white;
+      color: $c-blue;
+    }
+  }
+
+  &--submit {
+    font-size: 15px;
+    padding: 7px 42px;
+  }
+
+  i {
+    line-height: 1.1;
+  }
+}

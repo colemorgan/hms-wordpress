@@ -1,0 +1,104 @@
+.contact-block {
+  padding: 50px 0;
+  @include angle(after, false, 6deg);
+  background-color: $c-black;
+  z-index: 0;
+
+  &.contact-block--home {
+    background-color: $c-white;
+    padding: 0;
+
+    &:after {
+      display: none;
+    }
+
+    @include bp(medium) {
+      padding: 0;
+    }
+  }
+
+  @include bp(medium) {
+    background-color: $c-black;
+    padding: 100px 0;
+  }
+}
+
+.contact-block-inner {
+  background-color: $c-white;
+  position: relative;
+
+  @include bp(medium) {
+    .contact-block--home & {
+      top: -40px;
+    }
+  }
+}
+
+.contact-block-title {
+  color: $c-red;
+  padding: 0 0 20px;
+}
+
+.contact-block-content {
+  padding: 0 0 20px;
+}
+
+.contact-block-columns {
+  @include clearfix;
+  padding: 30px 0 50px;
+
+  @include bp(medium) {
+    padding: 44px 0 70px;
+  }
+}
+
+.contact-block-columns-left {
+  padding: 0 span(1);
+  margin-bottom: 40px;
+
+  @include bp(medium) {
+    @include span(8 wide);
+    margin-left: span(1);
+    margin-bottom: 0;
+    padding: 0;
+  }
+}
+
+.contact-block-columns-right {
+  padding: 0 span(1);
+
+  @include bp(medium) {
+    @include span(5);
+    margin-left: span(1 wide);
+    padding: 0;
+  }
+}
+
+.contact-block-image {
+  text-align: center;
+
+  @include bp(medium) {
+    text-align: left;
+  }
+
+  img {
+    @include bp(medium) {
+      width: 100%;
+    }
+  }
+}
+
+.contact-block-form {
+  max-width: 350px;
+
+  @include bp(medium) {
+    max-width: none;
+  }
+}
+
+.contact-block-form-footer,
+.contact-block-form .gform_footer {
+  @include bp(medium) {
+    text-align: right;
+  }
+}

@@ -1,0 +1,67 @@
+.icon {
+  /* Flow with text content */
+  display: inline-block;
+  /* Inherit the parent text color */
+  fill: currentColor;
+  /* Use the parent font-size for width and height */
+  height: 1em;
+  width: 1em;
+  /* Vertically align icon with adjacent text */
+  vertical-align: middle;
+  /* Align more nicely with capital letters */
+  position: relative;
+
+  &-logo {
+    width: 136px;
+    height: 48px;
+  }
+
+  &-arrow{
+
+    &--right {
+      width: 9px;
+      height: 8px;
+      margin-left: 6px;
+    }
+
+    &-down {
+      width: 40px;
+      height: 40px;
+
+      @include bp(smedium) {
+        width: 55px;
+        height: 55px;
+      }
+    }
+  }
+
+  &-levels {
+    width: 92px;
+    height: 92px;
+
+    .ccls-1 {
+      fill: $c-white;
+    }
+
+    .ccls-2 {
+      fill: $c-blue;
+    }
+  }
+
+  &-social {
+    width: 35px;
+    height: 35px;
+  }
+
+  &-play {
+    width: 10px;
+    height: 12px;
+    margin-left: 5px;
+
+    @include bp(medium) {
+      width: 14px;
+      height: 16px;
+    }
+  }
+}
+

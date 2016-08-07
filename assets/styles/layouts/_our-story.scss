@@ -1,0 +1,292 @@
+.story-block {
+  position: relative;
+  background-color: $c-black;
+  padding: 25px 0;
+  margin-top: 0;
+
+  &--white {
+    background: $c-white;
+  }
+
+  &--first {
+    @include angle(after, false, 6deg);
+    @include angle(before, false, 6deg);
+    z-index: 3;
+  }
+
+  &--second {
+    @include angle(after, true, 6deg);
+    z-index: 2;
+    @include bp(medium) {
+      padding: 0;
+    }
+  }
+
+  &--third {
+    padding: 80px 0;
+
+    @include bp(medium) {
+      padding: 250px 0 90px;
+    }
+
+    @include bp(large) {
+      padding: 265px 0 115px 0;
+    }
+  }
+
+  &--fourth {
+    padding: 60px 0;
+
+    @include bp(large) {
+      padding: 80px 0 100px;
+    }
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .story-panel {
+    position: relative;
+  }
+
+  .story-panel-inner {
+    @include clearfix;
+    display: block;
+  }
+}
+
+.story-block-row {
+  position: relative;
+
+  @include bp(medium) {
+    margin-left: span(1 wide);
+  }
+}
+
+.story-panel {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 70px;
+    height: 3px;
+    background: $c-white;
+
+    @include bp(medium) {
+      margin-left: span(1 wide);
+    }
+  }
+
+  &:before {
+    margin-bottom: 30px;
+
+    @include bp(medium) {
+      margin-bottom: 38px;
+    }
+  }
+
+  &:after {
+    margin-top: 20px;
+
+    @include bp(medium) {
+      margin-top: 50px;
+    }
+  }
+
+  .story-block--second &{
+    text-align: right;
+    padding: 40px 0;
+
+    @include bp(medium) {
+      padding: 0;
+    }
+
+    @include bp(large) {
+      margin-top: -20px;
+    }
+
+    &:before,
+    &:after {
+      background: $c-blue;
+      margin-left: 0;
+      @include bp(medium) {
+        margin-right: span(1 wide);
+      }
+    }
+  }
+}
+
+.story-block-inner {
+  @include clearfix;
+
+  .story-block--second & {
+    @include bp(medium) {
+      position: relative;
+      padding-top: 100px;
+      padding-bottom: 200px;
+    }
+
+    @include bp(large) {
+      padding-top: 150px;
+      padding-bottom: 260px;
+    }
+  }
+}
+
+.story-block-images {
+  text-align: center;
+  @include bp(medium) {
+    width: span(4 last);
+    right: span(1 wide);
+    text-align: left;
+  }
+
+  img {
+    margin-bottom: 10px;
+
+    @include bp(large) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .story-block--first & {
+    @include bp(medium) {
+      position: absolute;
+      top: 70%;
+      z-index: 5;
+    }
+
+    @include bp(large) {
+      top: 80%;
+    }
+  }
+
+  .story-block--third & {
+    @include bp(medium) {
+      position: absolute;
+      bottom: -50px;
+    }
+
+    @include bp(large) {
+      bottom: -75px;
+    }
+  }
+}
+
+.story-block-content {
+  margin: 0 0 30px;
+
+  @include bp(medium) {
+    @include span(9);
+    margin: 0 span(1) 0 span(1 wide);
+    max-width: none;
+  }
+
+  .story-block--second &{
+    @include bp(medium) {
+      @include last;
+      margin: 0 span(1 wide) 0 span(1);
+    }
+  }
+}
+
+.story-block-title {
+  color: $c-blue;
+  font-size: 20px;
+  padding: 0 0 12px;
+
+  @include bp(large) {
+    font-size: 26px;
+    padding: 0 0 18px;
+  }
+}
+
+.story-block-text {
+  color: $c-white;
+
+  @include bp(large) {
+    font-size: 16px;
+  }
+
+
+  p {
+    color: $c-white;
+
+    margin-bottom: 12px;
+
+    @include bp(large) {
+      margin-bottom: 18px;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    .story-block--white & {
+      color: $c-black;
+    }
+  }
+}
+
+.story-block-image-top {
+  padding-top: 20px;
+  text-align: center;
+
+  @include bp(large) {
+    padding-top: 40px;
+    text-align: left;
+  }
+}
+
+.story-block-images-bottomleft {
+  text-align: center;
+
+  @include bp(medium) {
+    right: auto;
+    left: span(1 wide);
+    position: absolute;
+    bottom: -15%;
+    z-index: 5;
+    text-align: left;
+  }
+
+  @include bp(large) {
+    bottom: -20%;
+  }
+}
+
+.story-block-image-bottomright {
+  margin-bottom: 20px;
+  text-align: center;
+
+  @include bp(medium) {
+    float: right;
+    position: absolute;
+    right: span(1 wide);
+    bottom: -150px;
+    z-index: 5;
+    margin-top: 75px;
+    margin-bottom: 0;
+    text-align: left;
+
+    @include bp(large) {
+      margin-top: 110px;
+    }
+  }
+}
+
+.story-block-title {
+  color: $c-blue;
+  margin: 0 0 20px;
+
+  @include bp(large) {
+    margin-bottom: 30px;
+  }
+}

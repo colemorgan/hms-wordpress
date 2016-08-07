@@ -1,0 +1,146 @@
+.form {
+
+  @include bp(medium) {
+    max-width: none;
+  }
+
+  label {
+    display: none;
+  }
+
+  input[type="text"] {
+    border: 1px solid $c-black;
+    width: 100%;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: $c-black;
+
+    @include placeholder() {
+     color: $c-black !important;
+     text-transform: uppercase;
+     opacity: 1;
+    }
+  }
+
+  textarea {
+    border: 1px solid $c-black;
+    width: 100%;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: $c-black;
+    height: 175px;
+    max-width: 100%;
+
+    @include placeholder() {
+     color: $c-black !important;
+     text-transform: uppercase;
+     opacity: 1;
+    }
+  }
+  input[type="submit"] {
+    @extend %button;
+    cursor: pointer;
+  }
+
+
+  li,
+  .gfield {
+    margin: 0 0 18px;
+  }
+
+  .ginput_container_select {
+    border: 1px solid $c-black;
+    width: 100%;
+    font-size: 15px;
+    color: $c-black;
+    overflow: hidden;
+    text-transform: uppercase;
+    position: relative;
+
+    &:after {
+      content: url('../../dist/images/icons/icon-arrow--dropdown.png');
+      display: inline-block;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .gfield_select {
+      padding: 5px 10px;
+      width: 130%;
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+      background-image: none;
+      -webkit-appearance: none;
+      appearance: none;
+      text-transform: uppercase;
+    }
+  }
+
+  &--inline {
+    position: relative;
+
+    ul,
+    .gform_fields {
+
+      li,
+      .gfield {
+        display: block;
+
+        @include bp(smedium) {
+          display: inline-block;
+          width: 31.5%;
+          margin-right: 2%;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        @include bp(medium) {
+          width: 25%;
+          margin-right: 2%;
+
+          &:last-child {
+
+          }
+        }
+      }
+    }
+
+    .form-footer,
+    .gform_footer {
+      display: bock;
+      text-align: right;
+      margin-top: 10px;
+
+      @include bp(medium) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.form-footer,
+.gform_footer {
+  @include bp(medium) {
+    text-align: right;
+  }
+}
+
+.validation_error {
+  color: $c-red;
+  font-style: italic;
+  margin: 0 0 15px;
+}
+
+.validation_message {
+  color: $c-red;
+  font-size: 12px;
+  margin: 5px 0 0 0;
+}

@@ -1,0 +1,262 @@
+// Clearfix
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Media Query Fun
+// http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+@mixin bp($name, $breakpoint_list: $breakpoints) {
+  // If the key exists in the map
+  @if map-has-key($breakpoint_list, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoint_list, $name))} {
+      @content;
+    }
+  } @else {
+    // If the key doesn't exist in the map
+    @warn "Unfortunately, no value with #{$name} could be retrieved from `$breakpoint`. "
+        + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+// Touch and mobile
+@mixin touch {
+  @if & {
+    .touch & {
+      @content;
+    }
+  } @else {
+    .touch {
+      @content;
+    }
+  }
+}
+
+// Vertically center element
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/// Makes an item relatively sized according
+/// to a ratio and the screen size
+/// @param {number} $width
+/// @param {number} $height
+/// @example scss - aspect-ratio mixin
+///  @include aspect-ratio(1, 0.8);
+@mixin aspect-ratio($x, $y) {
+
+  @if (type-of($x) != number) or
+      (type-of($y) != number) {
+    @error 'You need to enter a number as the second and third paramaters.'
+  }
+
+  overflow: hidden;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($y / $x) * 100%;
+  }
+
+  > *:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin susy-debug-grid($susy-debug: hide) {
+  &:before {
+    @include container();
+    @if $susy-debug == "show" {
+      @include show-grid($susy-debug);
+      content: "";
+    } @else {
+      @include show-grid($susy-debug);
+    }
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    pointer-events: none;
+    height: 100vh;
+    padding: 0 20px;
+  }
+}
+
+// Typographic mixins
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      @include make-font-size($fs-font-size);
+    }
+    @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media #{inspect($fs-breakpoint)} {
+        @include make-font-size($fs-font-size);
+      }
+    }
+  }
+}
+
+// Utility function for mixin font-size
+@mixin make-font-size($fs-font-size) {
+  // If $fs-font-size is a list, include
+  // both font-size and line-height
+  @if type-of($fs-font-size) == "list" {
+    font-size: nth($fs-font-size, 1);
+    @if (length($fs-font-size) > 1) {
+      line-height: nth($fs-font-size, 2);
+    }
+  }
+  @else {
+    font-size: $fs-font-size;
+  }
+}
+
+@mixin font($family: $f-open_sans, $weight: normal, $style: normal) {
+  font-family: $family;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin angle($pseudo, $flip: false, $angle: 1.5deg) {
+  // Possible values for $pseudo are: before, after, both
+  @if $pseudo == 'before' or $pseudo == 'after' or $pseudo == 'both' {
+    position: relative;
+    z-index: 1;
+    $selector: if($pseudo == 'both', '&:before,&:after', '&:#{$pseudo}');
+
+    #{$selector} {
+      background: inherit;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden; // for Chrome Windows
+    }
+
+    @if $pseudo == 'before' {
+      #{$selector} {
+        top: 0;
+
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+    }
+
+    @if $pseudo == 'after' {
+      #{$selector} {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 100%;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+
+    @if $pseudo == 'both' {
+      &:before {
+        top: 0;
+
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+
+      &:after {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Style placeholder text at the root level or on an element
+@mixin placeholder {
+
+  @if & {
+
+    &::-webkit-input-placeholder {
+      @content;
+    }
+
+    &::-moz-placeholder {
+      @content;
+    }
+
+    &:-ms-input-placeholder {
+      @content;
+    }
+
+  } @else {
+
+    // scss-lint:disable QualifyingElement
+    input[placeholder],
+    textarea[placeholder] {
+      @content;
+    }
+
+    ::-moz-placeholder {
+      @content;
+    }
+
+    :-moz-placeholder {
+      @content;
+    }
+
+    ::-webkit-input-placeholder {
+      @content;
+    }
+
+    :-ms-input-placeholder {
+      @content;
+    }
+
+  }
+}

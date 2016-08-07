@@ -1,0 +1,94 @@
+.contact-main {
+  background-color: $c-black;
+  padding: 40px 0;
+  @include angle(before, false, 6deg);
+
+  @include bp(medium) {
+    padding: 60px 0 40px;
+  }
+
+  @include bp(large) {
+    padding: 80px 0 60px;
+  }
+}
+
+.contact-main-title {
+  color: $c-blue;
+  padding: 0 0 20px;
+
+  @include bp(large) {
+    padding-bottom: 30px;
+  }
+}
+
+.contact-main-content {
+  color: $c-white;
+
+  p {
+    color: $c-white;
+    margin: 0 0 20px;
+  }
+}
+
+.contact-main-columns {
+  @include clearfix;
+  margin-bottom: 50px;
+
+  @include bp(large) {
+    padding: 0 span(1 wide);
+    margin-bottom: 70px;
+  }
+}
+
+.contact-main-column-left {
+  padding: 0 0 20px;
+
+  @include bp(medium) {
+    @include span(8);
+    padding: 0;
+  }
+}
+
+.contact-main-column-right {
+
+  @include bp(medium) {
+    @include span(6 last);
+  }
+}
+
+.contact-main-images {
+  text-align: center;
+
+  @include bp(large) {
+    padding: 0 span(1 wide);
+    text-align: left;
+  }
+}
+
+.contact-main-image {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  @include bp(medium) {
+    display: block;
+    float: left;
+    width: 25%;
+    padding: 0 5px;
+    margin: 0;
+  }
+
+  img {
+    @include bp(medium) {
+      width: 100%;
+    }
+  }
+}
+
+.contact-main-images-inner {
+  @include clearfix;
+
+  @include bp(large) {
+    margin: 0 -5px;
+  }
+}

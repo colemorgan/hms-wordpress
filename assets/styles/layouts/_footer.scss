@@ -1,0 +1,158 @@
+.footer {
+
+  .menu-item {
+    font-size: 13px;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    line-height: 1.6;
+    -webkit-text-stroke: 1px black;
+
+    @include bp(medium) {
+      font-size: 15px;
+    }
+
+    @include bp(large) {
+      font-size: 16px;
+    }
+
+    a {
+      color: $c-black;
+
+      &:hover {
+        color: $c-blue;
+      }
+    }
+  }
+
+  .sub-menu {
+    text-transform: none;
+    padding-top: 2px;
+    -webkit-text-stroke: 0 black;
+
+    .menu-item {
+      font-weight: normal;
+      margin: 0 0 2px;
+      text-transform: none;
+      -webkit-text-stroke: 0;
+
+      > a {
+        &:hover {
+          color: $c-blue;
+        }
+      }
+    }
+
+    .footer-menu-sub-link {
+      color: $c-black;
+    }
+  }
+}
+
+.footer-top {
+ @include clearfix;
+  padding: 75px 0 25px;
+
+  @include bp(medium) {
+    padding: 90px 0 50px;
+  }
+
+  @include bp(large) {
+    padding: 105px 0 50px;
+  }
+}
+
+.footer-copyright {
+  border-top: 1px solid $c-blue;
+  padding: 15px 0;
+  text-align: center;
+
+  p {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+
+.footer-top-left {
+  @include clearfix;
+  margin-bottom: 20px;
+
+  @include bp(medium) {
+    @include span(7);
+    margin-left: span(1 wide);
+    padding-top: 85px;
+    margin-bottom: 0;
+  }
+}
+
+.footer-menu-left {
+  @include span(4 of 7 );
+  margin-right: 0;
+}
+
+.footer-menu-right {
+  @include span(3 of 7 wide last);
+}
+
+.footer-top-right {
+  @include bp(medium) {
+    @include span(5 wide);
+    margin-left: span(2);
+  }
+}
+
+.footer-btn {
+  margin: 0 0 25px;
+
+  @include bp(medium) {
+    margin: 0 0 40px;
+  }
+
+  .btn {
+    padding: 8px 15px;
+  }
+}
+
+.footer-call-us {
+  font-size: 15px;
+  padding: 0 0 25px;
+
+  @include bp(medium) {
+    padding: 0 0 35px;
+  }
+}
+
+.footer-address-link {
+  font-size: italic;
+}
+
+.footer-address {
+  font-size: 13px;
+  font-weight: 300;
+  margin: 0 0 20px;
+
+  @include bp(medium) {
+    font-size: 15px;
+    margin: 0 0 30px;
+  }
+
+  @include bp(large) {
+    font-size: 16px;
+  }
+}
+
+.footer-social {
+  display: block;
+}
+
+.footer-social-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.footer-social-link {
+  color: $c-blue;
+
+  &:hover {
+    color: darken( $c-blue, 20% )
+  }
+}

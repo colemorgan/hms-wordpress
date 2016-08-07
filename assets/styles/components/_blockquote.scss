@@ -1,0 +1,131 @@
+.blockquote {
+  position: relative;
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+  border: 2px solid $c-blue;
+
+  @include bp(medium) {
+    padding: 40px;
+  }
+
+  p {
+    font-size: 14px;
+    color: $c-white;
+    margin: 0 0 20px;
+
+    @include bp(large) {
+      font-size: 16px;
+    }
+  }
+
+  cite {
+    font-family: $f-lora;
+    font-size: 14px;
+    color: $c-blue;
+
+    @include bp(large) {
+      font-size: 16px;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    background-image: url('../../dist/images/icons/icon-quote.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: 31px;
+
+    @include bp(medium) {
+      width: 52px;
+      height: 49px;
+    }
+  }
+
+  &:before {
+    left: -25px;
+    top: 15px;
+
+    @include bp(medium) {
+      left: -35px;
+      top: 25px;
+    }
+  }
+
+  &:after {
+    transform: rotate(180deg);
+    right: -25px;
+    bottom: 15px;
+
+    @include bp(medium) {
+      right: -35px;
+      bottom: 25px;
+    }
+  }
+
+  &--gray {
+    &:before,
+    &:after {
+      background-image: url('../../dist/images/icons/icon-quote--gray.png');
+    }
+  }
+
+  &--testimonial {
+    padding: 50px 25px;
+
+    @include bp(large) {
+      padding: 95px 25px 50px 25px;
+    }
+
+    &:before,
+    &:after {
+      width: 40px;
+      height: 38px;
+    }
+
+    &:before {
+      left: -14px;
+      top: 35px;
+    }
+
+    &:after {
+      bottom: 30px;
+      right: -14px;
+    }
+  }
+
+  &--lessons {
+    text-align: left;
+
+    @include bp(medium) {
+      padding: 25px 40px 30px 40px;
+    }
+
+    @include bp(large) {
+      padding: 25px 60px 30px 100px;
+    }
+
+    p {
+      color: $c-black
+    }
+
+    cite {
+      display: block;
+      margin: 0 0 20px;
+
+      @include bp(large) {
+        margin: 0 0 40px;
+      }
+    }
+
+    .read-more {
+      color: $c-red;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}

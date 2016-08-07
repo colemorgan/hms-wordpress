@@ -1,0 +1,43 @@
+.scroll-indicator {
+  position: absolute;
+  bottom: 15%;
+  z-index: 5;
+  width:100%;
+  color: $c-blue;
+
+  .banner--story & {
+    color: $c-white;
+  }
+
+  i {
+    margin-left: span(1 wide);
+  }
+
+  @include bp(small) {
+    bottom: 15%;
+  }
+
+  @include bp(smedium) {
+    bottom: 12%;
+  }
+
+  @include bp(medium) {
+    bottom: 17%;
+  }
+
+  @include bp(large) {
+    bottom: 15%;
+  }
+
+  @include bp(xlarge) {
+    bottom: 17%;
+  }
+
+  @include bp(xxlarge) {
+    bottom: 17%;
+  }
+
+  @include bp(xxxlarge) {
+    bottom: 15%;
+  }
+}

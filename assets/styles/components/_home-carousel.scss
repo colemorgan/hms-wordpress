@@ -1,0 +1,176 @@
+.home-carousel {
+  position: relative;
+  background-color: $c-black;
+  padding: 25px 0 75px;
+  margin-top: -50px;
+  z-index: 3;
+  @include angle(before, false, 6deg);
+  @include angle(after, false, 6deg);
+
+  .container {
+    position: relative;
+  }
+}
+
+.carousel {
+  &:before,
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 70px;
+    height: 3px;
+    background: $c-white;
+
+    @include bp(medium) {
+      margin-left: span(1 wide);
+    }
+  }
+
+  &:before {
+    margin-bottom: 18px;
+  }
+
+  &:after {
+    margin-top: 34px;
+  }
+}
+
+.home-carousel-inner {
+  @include clearfix;
+}
+
+.home-carousel-image {
+  text-align: center;
+
+  @include bp(medium) {
+    @include span(4 wide);
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  img {
+    display: inline-block;
+  }
+}
+
+.home-carousel-content {
+  margin: 0 0 30px;
+
+  @include bp(medium) {
+    @include span(9 wide);
+    margin: 0 span(1) 0 span(1 wide);
+    max-width: none;
+  }
+}
+
+.home-carousel-title {
+  color: $c-blue;
+  padding: 0 0 10px;
+}
+
+.home-carousel-subtitle {
+  font-size: 13px;
+  color: $c-white;
+
+  @include bp(medium) {
+    font-size: 15px;
+  }
+}
+
+.carousel .panel {
+  outline: 0;
+}
+
+.panel-inner {
+  @include bp(medium) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -10%;
+  right: 0;
+  left: 0;
+  width: auto;
+  margin: auto;
+  text-align: center;
+
+  @include bp(medium) {
+    bottom: -18%;
+  }
+
+  li {
+    display: inline-block;
+    background-color: $c-blue;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .3s;
+
+    @include bp(medium) {
+      width:12px;
+      height:12px;
+      margin-right: 0;
+      margin-left: 28px;
+    }
+
+    &.slick-active {
+      background-color: $c-white;
+    }
+
+    button {
+      text-indent: -99999em;
+      visibility: hidden;
+    }
+  }
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.carousel-prev {
+  left: -30px;
+
+  &:before {
+    content:"";
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border-right: 0.15em solid $c-blue;
+    border-top: 0.15em solid $c-blue;
+    transform: rotate(-135deg);
+  }
+}
+.carousel-next {
+  right: -30px;
+
+  &:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border-right: 0.15em solid $c-blue;
+    border-top: 0.15em solid $c-blue;
+    transform: rotate(45deg);
+  }
+}
+
+.slick-track{
+    display: flex;
+
+  .slick-slide{
+    display: flex;
+    height: auto;
+    align-items: center; //optional
+  }
+}

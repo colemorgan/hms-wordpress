@@ -1,0 +1,388 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: $c-black;
+  z-index: 1001;
+  -webkit-backface-visibility: hidden;
+
+  + .main-wrapper {
+    @include bp(large) {
+      padding-top: 70px;
+    }
+  }
+}
+
+.admin-bar .header {
+  top: 46px;
+}
+@media screen and (min-width: 783px) {
+  .admin-bar .header {
+    top: 32px;
+  }
+}
+
+.header-container {
+  @include bp(large-down) {
+    max-width: none;
+    position: relative;
+  }
+}
+
+.header-inner {
+  padding: 14px 0 8px;
+}
+
+.header-logo {
+  display: inline-block;
+  width: auto;
+}
+
+.header-nav{
+  background-color: $c-black;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 1000;
+
+  @include bp(large) {
+    background: none;
+    position: static;
+    float: right;
+    display: block;
+    margin-top: 12px;
+  }
+
+  @include bp(large) {
+    margin-top: 10px;
+  }
+
+  .menu-item {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-top: 1px solid $c-white;
+
+    @include bp(large) {
+      display: inline-block;
+      font-size: 11px;
+      margin-left: 18px;
+      padding: 0;
+      border: 0;
+    }
+
+    @include bp(large) {
+      font-size: 12px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      @include bp(large) {
+        display: none;
+      }
+      @include bp(large) {
+        display: inline-block;
+      }
+    }
+    &.current-menu-parent {
+      > a {
+        background: url('../../dist/images/icons/icon-arrow--nav_blue.png') no-repeat right center;
+        color: $c-blue;
+        -webkit-text-stroke: 1px $c-blue;
+      }
+    }
+
+    > a {
+      display: block;
+      color: $c-white;
+      position: relative;
+      -webkit-text-stroke: 1px $c-white;
+      transition: all 0.2s;
+      padding: 15px 20px;
+
+      @include bp(large) {
+        display: inline-block;
+        padding: 0;
+      }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      &:before {
+        content:"";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        display: none;
+        width: 100%;
+        background: $c-blue;
+        height: 3px;
+        opacity: 0;
+        transition: opacity .2s;
+        margin-top: 2px;
+
+        @include bp(large) {
+          display: block;
+        }
+      }
+
+      &.current-menu-item {
+        > a {
+          background: url('../../dist/images/icons/icon-arrow--nav_blue.png') no-repeat right center;
+          color: $c-blue;
+        }
+      }
+    }
+
+    &--cta {
+      padding: 15px 20px;
+
+      @include bp(large) {
+        padding: 0;
+      }
+
+      >a {
+        @extend %button;
+        display: inline-block;
+        font-size: 11px;
+        padding: 7px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        color: $c-white;
+        -webkit-text-stroke: 1px $c-white;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    &.sub-nav-active {
+      > a {
+        color: $c-blue;
+        -webkit-text-stroke: 1px $c-blue;
+
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      > .sub-menu {
+        @include bp(large) {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .sub-menu {
+    display: none;
+    background: $c-white;
+
+    @include bp(large) {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 12px 0;
+      top: 100%;
+      text-align: center;
+      z-index: -1;
+      transition: all 0.2s;
+    }
+
+    .menu-item {
+      font-size: 13px;
+      text-transform: none;
+      border-top: 1px solid $c-black;
+
+      @include bp(large) {
+        margin: 0 22px;
+        border: 0;
+      }
+
+      @include bp(large) {
+        font-size: 15px;
+      }
+
+      > a {
+        color: $c-black;
+        -webkit-text-stroke: 1px $c-black;
+        position: relative;
+
+        &:after {
+          content:"";
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 100%;
+          display: none;
+          width: 100%;
+          background: $c-blue;
+          height: 3px;
+          opacity: 0;
+          transition: opacity .2s;
+          margin-top: 2px;
+
+          @include bp(large) {
+            display: block;
+          }
+        }
+
+        &:hover {
+
+          &:after {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+
+      &.current-menu-item {
+        > a {
+          color: $c-blue;
+          -webkit-text-stroke: 1px $c-blue;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .menu-item-has-children {
+
+    @include bp(large) {
+      padding-right: 16px;
+    }
+
+    > a {
+      background: url('../../dist/images/icons/icon-arrow--nav.png') no-repeat 95% center;
+      display: block;
+
+      @include bp(large) {
+        background-position: right center;
+        display: inline-block;
+        margin-left: 5px;
+        padding-right: 15px;
+      }
+    }
+
+    &.sub-nav-active {
+      > a {
+        background: url('../../dist/images/icons/icon-arrow--nav_blue.png') no-repeat 95% center;
+
+        @include bp(large) {
+          background-position: right center;
+        }
+      }
+    }
+  }
+}
+
+.header-message {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 18px;
+  font-size: 20px;
+
+  @include bp(large) {
+    display: block;
+  }
+}
+
+.nav-trigger {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  height: 20px;
+  line-height: 0;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  transition: all .3s;
+
+  @include bp(large) {
+    display: none;
+  }
+
+  .lines {
+    display: inline-block;
+    position: relative;
+    background: $c-blue;
+    width: 23px;
+    height: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:before,
+    &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      background: $c-blue;
+      left: 0;
+      width: 23px;
+      height: 3px;
+      transition: all 0.3s;
+      transform-origin: center center;
+
+      @include bp(xlarge) {
+        width: 30px;
+        height: 4px;
+      }
+    }
+
+    &:before {
+      top: -7px;
+    }
+
+    &:after {
+      top: 7px;
+    }
+  }
+
+  &.is-active {
+    .lines {
+      background: transparent;
+
+      &:before,
+      &:after {
+        top: 0;
+        width: 20px;
+        transform-origin: 50% 50%;
+      }
+
+      &:before {
+        transform: rotate3d(0,0,1,45deg);
+      }
+
+      &:after {
+        transform: rotate3d(0,0,1,-45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,256 @@
+.banner {
+  position: relative;
+}
+
+.banner-content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 25px 0 20px;
+
+  .banner--home & {
+    bottom: 35%;
+
+    @include bp(large) {
+      bottom: 35%;
+    }
+
+    @include bp(xlarge) {
+      bottom: 40%;
+    }
+  }
+
+  .banner--page & {
+    padding: 20px 0;
+
+    @include bp(medium) {
+      padding: 45px 0 30px;
+    }
+
+    &:before {
+      content:"";
+      background: rgba($c-black, .45);
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 100%;
+      z-index: -2;
+    }
+  }
+
+  .banner--lessons & {
+    padding: 0;
+    bottom: 20%;
+    text-align: center;
+
+    @include bp(large) {
+      bottom: 40%;
+    }
+  }
+
+  .banner--story & {
+    bottom: 15%;
+
+    @include bp(large) {
+      bottom: 25%;
+    }
+  }
+}
+
+.banner-content-inner {
+  @include bp(small) {
+    padding-left: span(1);
+  }
+
+  @include bp(medium) {
+    padding-left: span(1 wide);
+  }
+
+  .banner--lessons &{
+    padding: 0;
+  }
+}
+
+.banner-subtitle {
+  color: $c-white;
+  padding: 0 0 5px;
+
+  .banner--page & {
+    padding: 0 0 15px;
+
+    @include bp(medium) {
+      padding: 0 0 30px;
+    }
+  }
+}
+
+.banner-text {
+  color: $c-white;
+  font-size: 12px;
+  padding-top: 3px;
+
+  @include bp(large) {
+    font-size: 23px;
+  }
+}
+
+.banner-title-wrap {
+  background: rgba($c-black, .45);
+  margin: 0 0 10px;
+
+  @include bp(medium) {
+    margin-bottom: 25px;
+  }
+}
+
+.banner-title {
+  display: inline-block;
+  position: relative;
+  color: $c-white;
+  font-family: $f-lora;
+
+  .banner--lessons & {
+    display: block;
+    padding: 11px 0;
+    text-align: center;
+  }
+}
+
+.banner-quote {
+  display: block;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    background: url('../../dist/images/icons/icon-quote--blue.png') no-repeat 0 0;
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    width: 30px;
+    height: 28px;
+    z-index: -1;
+    display: none;
+
+    @include bp(small) {
+      display: inline-block;
+    }
+
+    @include bp(medium) {
+     width: 40px;
+     height: 37px;
+    }
+
+    @include bp(large) {
+      width: 51px;
+      height: 48px;
+    }
+  }
+
+  &:before {
+    left: -25px;
+    top: -5px;
+
+    @include bp(medium) {
+      left: -35px;
+      top: -5px;
+    }
+  }
+
+  &:after {
+    right: 10px;
+    top: 20px;
+    position: relative;
+    transform: rotate(180deg);
+
+    @include bp(medium) {
+      right: 23px;
+      top: 22px;
+
+      .banner--page & {
+        right: 13px;
+        top: 28px;
+      }
+    }
+  }
+}
+
+.banner-image {
+  @include aspect-ratio(1, 1);
+  z-index: -2;
+
+  @include bp(medium) {
+    @include aspect-ratio(768,500);
+  }
+
+  @include bp(large) {
+    @include aspect-ratio(1024,500);
+  }
+
+  .banner--home & {
+    @include bp(large) {
+      @include aspect-ratio(1024,600);
+    }
+  }
+}
+
+.banner-image-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: block;
+  z-index: -2;
+}
+
+.banner-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.banner-box-inner {
+  max-width: 300px;
+  background: $c-white;
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto;
+
+  @include bp(medium) {
+    width: 320px;
+    padding: 25px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    margin: 0 0 10px;
+
+    @include bp(medium) {
+      font-size: 18px;
+    }
+  }
+}
+
+.banner-box-headline {
+  -webkit-text-stroke: 1px $c-black;
+  font-size: 14px;
+  margin: 0 0 10px;
+
+  @include bp(medium) {
+    font-size: 20px;
+  }
+}
+
+.banner-box-social {
+  padding-top: 10px;
+
+  @include bp(medium) {
+    padding-top: 16px;
+  }
+}

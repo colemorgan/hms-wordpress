@@ -1,0 +1,186 @@
+.results-block {
+  background-color: $c-black;
+  padding: 50px 0 60px;
+
+  @include bp(medium) {
+    padding-bottom: 80px;
+  }
+
+  @include bp(large) {
+    padding: 90px 0 110px;
+  }
+
+  &--white {
+    background-color: $c-white;
+    @include angle(before, false, 6deg);
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &--center {
+    text-align: center;
+    padding: 30px 0 50px;
+
+    @include bp(large) {
+      padding: 55px 0 110px;
+    }
+  }
+
+  &--small {
+    padding: 75px 0;
+
+    @include bp(medium) {
+      padding: 80px 0 100px;
+    }
+
+    @include bp(large) {
+      padding: 100px 0 150px;
+    }
+  }
+}
+
+.results-block-title {
+  color: $c-blue;
+  margin: 0 0 20px;
+
+  @include bp(large) {
+    margin-bottom: 30px;
+  }
+}
+
+.results-block-subtitle {
+  font-size: 18px;
+  margin: 0 0 15px;
+
+  @include bp(large) {
+    font-size: 30px;
+  }
+}
+
+.results-block-content {
+
+  p,
+  ul {
+    font-size: 13px;
+    color: $c-white;
+    padding: 0 0 15px;
+
+    @include bp(large) {
+      font-size: 15px;
+    }
+  }
+
+  .results-block--white & {
+    color: $c-black;
+
+    p,
+    ul {
+      color: $c-black;
+    }
+  }
+}
+
+.results-block-columns {
+  @include clearfix;
+}
+
+.results-block-column-primary {
+  margin: 0 0 20px;
+
+  @include bp(medium) {
+    @include span(10);
+    margin-left: span(1);
+  }
+}
+
+.results-block-column-secondary {
+  margin: 0 0 20px;
+  text-align: center;
+
+  @include bp(medium) {
+    @include span(4 last);
+    text-align: left;
+  }
+}
+
+.results-block-image {
+  text-align: center;
+  padding: 0;
+  display: inline-block;
+  margin: 0 0 10px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.results-carousel {
+  background: $c-light_blue;
+  position: relative;
+  padding: 25px 0;
+  margin-top: 0;
+  @include angle(before, false, 6deg);
+  @include angle(after, false, 6deg);
+  z-index: 3;
+
+  .container {
+    position: relative;
+  }
+
+  + .contact-block {
+    padding-top: 100px;
+
+    @include bp(medium) {
+      padding-top: 150px;
+    }
+
+    @include bp(large) {
+      padding-top: 230px;
+    }
+  }
+}
+
+.results-carousel-inner {
+  @include clearfix;
+}
+
+.results-carousel-image {
+  @include bp(medium) {
+    @include span(4 wide last);
+    margin-top: 10px;
+  }
+}
+
+.results-carousel-content {
+  margin: 0 0 30px;
+  color: $c-black;
+
+  @include bp(medium) {
+    @include span(9);
+    margin: 0 span(1) 0 span(1 wide);
+    max-width: none;
+  }
+}
+
+.results-carousel-title {
+  font-family: $f-muli;
+  color: $c-white;
+  font-size: 24px;
+  padding: 0 0 15px;
+
+  @include bp(large) {
+    font-size: 28px;
+    padding: 0 0 25px;
+  }
+}
+
+.carousel-nav--results {
+  .carousel-arrow {
+    &:before,
+    &:after {
+      border-color: $c-white;
+    }
+  }
+}

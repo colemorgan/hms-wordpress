@@ -1,0 +1,125 @@
+.home-tour {
+  position: relative;
+}
+
+.home-tour-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.home-tour-image-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left top;
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  &:before {
+    content:"";
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index:1;
+
+    @include bp(medium) {
+      display: none;
+    }
+  }
+}
+
+.home-tour-top {
+  background: rgba(0,0,0, .3);
+  padding: 5% 0;
+  margin-bottom: 40px;
+
+  @include bp(large) {
+    margin-bottom: 200px;
+  }
+}
+
+.home-tour-content {
+  width: 100%;
+  padding: 20% 0;
+}
+
+.home-tour-title {
+  color: $c-blue;
+  text-align: center;
+}
+
+.home-tour-text {
+  display: block;
+  width: span(14);
+  margin: 0 auto;
+  text-align: center;
+
+  @include bp(medium) {
+    width: span(12);
+  }
+
+  p {
+    font-size: 15px;
+    color: $c-white;
+    margin: 0 0 35px;
+    text-align: center;
+
+    @include bp(medium) {
+      color: $c-black;
+    }
+  }
+}
+
+.home-tour-blockquote {
+  background-color: rgba(#446A8C, .3);
+  border: 2px solid $c-blue;
+  width: 100%;
+  display: block;
+  max-width: 260px;
+  margin: 0 auto;
+
+  @include bp(medium) {
+    margin: 0 0 0 span(1 wide);
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+
+    @include bp(medium) {
+      padding: 80px 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: $c-white;
+      margin: 0 0 20px;
+    }
+
+    cite {
+      font-family: $f-lora;
+      font-size: 16px;
+      color: $c-blue;
+    }
+
+    &:before {
+      left: 8px;
+      top: -8px;
+    }
+
+    &:after {
+      right: 8px;
+      bottom: -8px;
+    }
+  }
+}
